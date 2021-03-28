@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" prefHeight="773.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <center>
+        <GridPane alignment="CENTER" hgap="10" prefHeight="720.0" prefWidth="413.0" stylesheets="@styles.css" vgap="10">
+
+            <Button fx:id="buttonNumber1" onAction="#handleNumKeysPressed" text="1" GridPane.rowIndex="4" />
+            <Button fx:id="buttonNumber2" onAction="#handleNumKeysPressed" text="2" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="buttonNumber3" onAction="#handleNumKeysPressed" text="3" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+
+            <Button fx:id="operatorPlus" onAction="#handleNumKeysPressed" prefHeight="111.0" prefWidth="144.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+
+            <Button fx:id="buttonNumber4" onAction="#handleNumKeysPressed" text="4" GridPane.rowIndex="5" />
+            <Button fx:id="buttonNumber5" onAction="#handleNumKeysPressed" text="5" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button fx:id="buttonNumber6" onAction="#handleNumKeysPressed" text="6" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
+            <Button fx:id="operatorMinus" onAction="#handleNumKeysPressed" prefHeight="111.0" prefWidth="130.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+
+            <Button fx:id="buttonNumber7" onAction="#handleNumKeysPressed" text="7" GridPane.rowIndex="6" />
+            <Button fx:id="buttonNumber8" onAction="#handleNumKeysPressed" text="8" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button fx:id="buttonNumber9" onAction="#handleNumKeysPressed" prefHeight="111.0" prefWidth="101.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+
+            <Button fx:id="operatorMultiply" onAction="#handleNumKeysPressed" prefHeight="111.0" prefWidth="140.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+
+            <Button fx:id="dot" onAction="#handleNumKeysPressed" prefHeight="111.0" prefWidth="98.0" text="." GridPane.rowIndex="7" />
+            <Button fx:id="buttonNumber0" onAction="#handleNumKeysPressed" text="0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+            <Button fx:id="operatorDivide" onAction="#handleNumKeysPressed" prefHeight="111.0" prefWidth="100.0" text="/" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Button fx:id="operatorEqual" onAction="#calculate" prefHeight="111.0" prefWidth="205.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+         <TextField fx:id="textField" layoutX="33.0" layoutY="78.0" prefHeight="105.0" prefWidth="437.0" GridPane.columnSpan="4">
+            <font>
+               <Font size="52" />
+            </font>
+         </TextField>
+         <TextField fx:id="previousExpField" prefHeight="51.0" prefWidth="208.0" style="-fx-text-fill: grey" GridPane.columnSpan="2" GridPane.rowIndex="2">
+             <font>
+                 <Font name="System Bold" size="20" />
+             </font>
+         </TextField>
+         <Label onMouseClicked="#Clear" prefHeight="56.0" prefWidth="129.0" text="Clear" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <font>
+               <Font size="36.0" />
+            </font>
+         </Label>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints maxWidth="108.0" minWidth="108.0" prefWidth="108.0" />
+            <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+    </center>
+   <top>
+      <AnchorPane prefHeight="36.0" prefWidth="482.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" layoutX="381.0" layoutY="-2.0" prefHeight="33.0" prefWidth="87.0" spacing="5.0">
+               <children>
+                  <Button fx:id="minButton" mnemonicParsing="false" onAction="#handleControl" prefHeight="23.0" prefWidth="30.0" text="-" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="38.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleControl" prefHeight="23.0" prefWidth="30.0" text="X" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <MenuBar blendMode="MULTIPLY" depthTest="ENABLE" layoutX="23.0" layoutY="3.0" opacity="0.89" prefHeight="34.0" prefWidth="70.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                      <MenuItem onAction="#showPreviousResult" text="Previous Results" />
+                    </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Label layoutX="156.0" prefHeight="39.0" prefWidth="157.0" text="Calculator">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+
+</BorderPane>
